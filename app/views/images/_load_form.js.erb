@@ -1,0 +1,17 @@
+// Get the image dialog component
+var imageDialog = $('#imageDialog');
+
+// Load content
+imageDialog.html("<%= j(render partial: 'form') %>");
+
+// Convert the tag editor into a token select
+var tagEditor = $('#image_tags');
+tagEditor.select2({
+    tags: true,
+    tokenSeparators: [',', ' '],
+    width: '100%',
+    minimumResultsForSearch: Infinity
+});
+
+// Show the image dialog
+imageDialog.modal('show');

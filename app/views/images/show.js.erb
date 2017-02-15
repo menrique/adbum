@@ -1,0 +1,8 @@
+// Get the image dialog component
+var imageDialog = $('#imageDialog');
+
+// Load content
+imageDialog.html("<%= j(render partial: 'show') %>");
+
+// Show the image dialog
+imageDialog.modal('show');

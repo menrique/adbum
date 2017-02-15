@@ -1,0 +1,40 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">Image Details</h4>
+    </div>
+
+    <div class="modal-body">
+      <% if @image.media.exists? %>
+        <%= image_tag @image.media.url(:medium) %>
+      <% end %>
+    </div>
+
+    <div class="modal-footer">
+      <div class="pull-left">
+
+        <%= link_to image_path(@image), method: :delete, class: 'btn btn-danger' do %>
+          Remove
+        <% end %>
+      </div>
+
+      <%= link_to edit_image_path(@image), remote: true, class: 'btn btn-default' do %>
+        Edit
+      <% end %>
+
+      <% if @prev.present? %>
+        <%= link_to image_path(@prev), remote: true, class: 'btn btn-primary' do %>
+          Prev
+        <% end %>
+      <% end %>
+
+      <% if @next.present? %>
+        <%= link_to image_path(@next), remote: true, class: 'btn btn-primary' do %>
+          Next
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

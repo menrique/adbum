@@ -1,0 +1,47 @@
+<h1>Repository</h1>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <%= form_tag search_images_path, class: 'navbar-form navbar-left' do %>
+      <div class="form-group">
+        <%= select_tag 'filter[]', options_for_select(@filter.map{|tag| [tag, tag]}, @filter), multiple: :multiple, include_blank: false %>
+      </div>
+      <%= submit_tag 'Search', class: 'btn btn-default' %>
+    <% end %>
+
+    <div class="navbar-form navbar-right">
+      <%= link_to new_image_path, remote: true, class: 'btn btn-primary pull-right' do %>
+        Add
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<%= render partial: 'shared/messages' %>
+
+<% @images.each_slice(4) do |row| %>
+  <div class="row">
+    <% row.each do |image| %>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_path(image), remote: true do %>
+            <%= image_tag image.media.url(:medium) %>
+          <% end %>
+          <div class="caption">
+            <p><%= image.tags.join(', ') %></p>
+            <%= link_to image_path(image), method: :delete, class: 'btn btn-danger pull-left' do %>
+              Remove
+            <% end %>
+            <%= link_to edit_image_path(image), remote: true, class: 'btn btn-default pull-right' do %>
+              Edit
+            <% end %>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div id="imageDialog" class="modal"></div>
