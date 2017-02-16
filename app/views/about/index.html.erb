@@ -1,0 +1,96 @@
+<h1>About</h1>
+
+<p class="alert alert-info">
+  <%= icon('info-circle') %> <i>Adbum is an academic exercise not ready for production yet. Please see the <a href="#recommendations">recommendations</a> to know what
+  needs to be completed.</i>
+</p>
+
+<h2>Coding Challenge</h2>
+
+<h3>Requirements</h3>
+<p>Create a program that we can use to add promotional images to our advertisements. Our ads vary in size, and so sometimes
+  we may include one large image or sometimes we may include several images in a paged gallery within the ad. This program
+  can be a command-line program, a library, or an API.</p>
+
+<h3>Expected Input</h3>
+<ul>
+  <li>Number of images to output</li>
+  <li>Image keywords to match as a comma-separated-value, i.e. “blue, flowers, desert”</li>
+</ul>
+
+<h3>Expected Output</h3>
+<ul>
+  <li>Total number of results</li>
+  <li>Image URL</li>
+  <li>Image Width</li>
+  <li>Image Height</li>
+</ul>
+
+<p>
+  The output format can be a table of HTML data if you feel that is easier, but in most cases simply printing output to
+  the command line or screen in a structured format will be good enough.
+</p>
+
+<h3>Image Data</h3>
+<p>
+  You can use a simple hash or array of data, a flat file of data (like JSON or TOML), or you can build a small db table
+  if you are so inclined. The data is not as important as the structure of your code, your functions, and the ability for us to run your code with this test data.
+</p>
+
+<h2>Design Overview</h2>
+
+<p class="alert alert-info">
+  <%= icon('info-circle') %> <i>Critical requirements based on the challenge are marked in red.</i>
+</p>
+
+<h3>Use Cases</h3>
+<p>
+  In order to solve this challenges, we need to gather the critical requirements. Here we expanded the original requirements
+  to deliver a more usable solution:
+</p>
+<p>
+  <%= image_tag 'use_cases.png' %>
+</p>
+
+<h3>Architectural Overview</h3>
+<p>
+  Based on critical requirements, we put together a simple design to structure the application:
+</p>
+<p>
+  <%= image_tag 'architectural_overview.png' %>
+</p>
+
+<h3>Data Model</h3>
+<p>
+  What data needs to be stored and queried? See the following diagram:
+</p>
+<p>
+  <%= image_tag 'data_model.png' %>
+</p>
+
+<h2>Recommendations</h2>
+
+<p>To extend and make this solution a production ready application, we recommend the following add-ons and improvements:</p>
+
+<ul id="recommendations">
+  <li>Add <a href="https://github.com/plataformatec/devise">users and roles to manage</a> the <%= link_to 'repository', images_path %></li>
+  <li>Add token based <a href="https://www.pluralsight.com/guides/ruby-ruby-on-rails/token-based-authentication-with-ruby-on-rails-5-api">authentication/authorization</a> to secure the API</li>
+  <li>Add <a href="https://github.com/kaminari/kaminari">pagination</a> to the repository index page</li>
+</ul>
+
+<h2>Author</h2>
+<p>Copyright (c) 2017 <a href="https://www.linkedin.com/in/mario-enrique-s%C3%A1nchez-749a1a89/">Mario Enrique Sanchez</a></p>
+
+<p class="alert alert-success">
+  <i>
+    Permission is hereby granted, <b>free of charge, to any person obtaining
+    a copy of this software</b> and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the Software
+    is furnished to do so, subject to the following conditions:
+
+    <b>The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.</b>
+  </i>
+</p>

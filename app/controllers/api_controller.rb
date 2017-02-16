@@ -32,6 +32,13 @@ class ApiController < ApplicationController
     render 'api/error', status: :bad_request
   end
 
+  def not_found
+
+    # Handle resource not found and output error message
+    @error = 'Resource not found'
+    render 'api/error', status: :not_found
+  end
+
   protected
 
   # Set response to JSON by default
