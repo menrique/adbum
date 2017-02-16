@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # API entrypoints
   scope '/api' do
     get :images, controller: :api, action: :images, as: :api_images
-    get :not_found, controller: :api, action: :not_found
+    get :not_found, controller: :api, action: :not_found, as: :api_not_found
     get '*path' => redirect('/api/not_found')
   end
 

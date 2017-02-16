@@ -6,7 +6,7 @@ on keywords for advertisement campaigns. The reference describes how to install 
 ## System Dependencies
 
 ### Ruby
-Adbun is a Ruby on Rails application, so you need to have ruby installed. Check if you already have Ruby 
+*Adbum* is a Ruby on Rails application, so you need to have ruby installed. Check if you already have Ruby 
 installed. Open the command line and type: 
 
 ```ruby -v ``` 
@@ -47,7 +47,7 @@ If you are on Ubuntu (or any Debian base Linux distribution), you'll want to run
 More details can be found at <https://github.com/thoughtbot/paperclip#image-processor>
 
 ### SQLite
-*Adbun* uses SQLite to persist and query images. To check if you have SQLite installed, please type in the
+*Adbum* uses SQLite to persist and query images. To check if you have SQLite installed, please type in the
 command line:
 
 ```sqlite3```
@@ -82,6 +82,11 @@ We are almost done, now it is time to run the App! You just need to run the rail
 ```rails s```
 
 More info at <http://guides.rubyonrails.org/command_line.html#rails-server>
+
+## Running Tests
+*Adbum* uses RSpec to automate tests. To run available tests, type in the command line:
+
+```rspec```
 
 ## Deployment
 
