@@ -9,10 +9,10 @@ $( document ).ready(function() {
             '?tags=' + tags +
             '&limit=' + limit,
 
-        // GEt the result container
+        // Get the result container
         resultComponent = $('#result');
 
-    // Get the JSON
+    // Query the API
     $.getJSON(apiUrl, function(data){
         renderResponse(data);
     }).fail(function(data) {
@@ -21,8 +21,13 @@ $( document ).ready(function() {
 
     // Render the response
     function renderResponse(data){
+        // COnvert data from JSON to a printable String
         var jsonString = JSON.stringify(data, null, 2);
+
+        // Display the response
         resultComponent.html(jsonString);
+
+        // Prettify the code
         resultComponent.parent().addClass('prettyprint');
         PR.prettyPrint();
         resultComponent.parent().removeClass('prettyprint');

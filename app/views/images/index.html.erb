@@ -24,6 +24,7 @@
 
 <%= render partial: 'shared/messages' %>
 
+<%#= Group images by rows of 4 %>
 <% @images.each_slice(4) do |row| %>
   <div class="row">
     <% row.each do |image| %>
@@ -33,16 +34,20 @@
             <%= image_tag image.media.url(:medium) %>
           <% end %>
           <div class="caption">
+
             <ul class="list-unstyled">
               <li><b>Dimensions:</b> <%= image.width %> X <%= image.height %></li>
               <li><b>Tags:</b> <%= image.tags.join(', ') %></li>
             </ul>
+
             <%= link_to image_path(image, filter: @filter), method: :delete, class: 'btn btn-danger pull-left' do %>
               Remove
             <% end %>
+
             <%= link_to edit_image_path(image, filter: @filter), remote: true, class: 'btn btn-default pull-right' do %>
               Edit
             <% end %>
+
             <div class="clearfix"></div>
           </div>
         </div>

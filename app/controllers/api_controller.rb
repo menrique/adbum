@@ -8,7 +8,6 @@ class ApiController < ApplicationController
     render 'api/error', status: :internal_server_error
   end
 
-  # Images retriever
   def images
 
     # Get parameters

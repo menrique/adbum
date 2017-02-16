@@ -31,7 +31,7 @@ class ImagesController < ApplicationController
 
       # Warn about hidden elements
       if @filter.present?
-        flash[:warning] = 'Actual search filter may not allow you to see the new image'
+        flash[:warning] = 'Actual search filter may hide the new image'
       end
     else
       flash[:error] = @image.errors.full_messages
@@ -52,7 +52,7 @@ class ImagesController < ApplicationController
 
       # Warn about hidden elements
       if @filter.present?
-        flash[:warning] = 'Actual search filter may not allow you to see the updated image'
+        flash[:warning] = 'Actual search filter may hide the updated image'
       end
     else
       flash[:error] = @image.errors.full_messages
@@ -63,6 +63,7 @@ class ImagesController < ApplicationController
   end
 
   def destroy
+
     # Delete and notify result
     if @image.destroy
       flash[:success] = 'Image successfully deleted'
@@ -74,7 +75,7 @@ class ImagesController < ApplicationController
 
   protected
 
-  # Filter allowed parameters used to populate the model
+  # Filter allowed parameters to populate the model
   def image_params
     # Clean empty tags first
     params.require(:image)[:tags].reject!{|tag| tag.blank?}

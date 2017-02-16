@@ -14,18 +14,13 @@
  *= require select2/css/select2
  */
 
-// Redefine variables here
-// ...
-
 // Importing styles using SASS
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-
-// Application custom styles
+// Custom styles
 body{
   padding-top: 5rem;
 }

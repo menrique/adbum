@@ -1,9 +1,9 @@
-# This is the JSON response
+# This is the main API response
 
-# Found image count
+# Found images count
 json.count @images.size
 
-# Set of found images with details
+# Found images set with details
 json.images @images do |image|
   json.url    path_to_url image.media.url
   json.width  image.width

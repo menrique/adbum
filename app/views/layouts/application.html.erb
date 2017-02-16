@@ -11,6 +11,7 @@
   <body onload="PR.prettyPrint()">
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
+
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNavbar" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -20,6 +21,7 @@
           </button>
           <%= link_to 'Adbum', root_path, class: 'navbar-brand' %>
         </div>
+
         <div class="collapse navbar-collapse" id="mainNavbar">
           <ul class="nav navbar-nav">
             <li class="<%= 'active' if controller_name == 'home' %>">

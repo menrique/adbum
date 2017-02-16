@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  # Get bootstrap class based on message type
+  # Get bootstrap alert class based on message type
   def get_bootstrap_alert_class(message_type)
     case message_type
       when 'success'
