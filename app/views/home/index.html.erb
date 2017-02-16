@@ -1,4 +1,7 @@
 <h1>Home</h1>
+
+<%= render partial: 'shared/messages' %>
+
 <p class="lead well">
   Adbum is a minimalistic API to retrieve images on demand. We store and serve the media, you just need to use them!
 </p>
@@ -15,20 +18,15 @@
 
 <p>
   First of all, you need to build the <%= link_to 'repository', images_path %> using our web console. You can
-  upload as many images as you want, specifying the tags so you can retrieve them later. To retrieve the list of images
-  you just need to provide two arguments: <b>tags</b> and <b>quantity</b>. Please see the following examples:
+  upload as many images as you want, specifying the to retrieve them later. To get the list of images,
+  you just need to provide two arguments: <b>tags</b> and <b>limit</b>. Please see the following example:
 </p>
 
 <h4>Java Script</h4>
 <pre class="prettyprint well">
   <code class="lang-js">
-    // Place code here
-  </code>
-</pre>
-
-<h4>Ruby</h4>
-<pre class="prettyprint well">
-  <code class="lang-ruby">
-    # Place code here
+    $.getJSON('<%= "#{path_to_url('api/images')}?tags=cute,cat&limit=20" %>', function(data){
+        console.log(data);
+    });
   </code>
 </pre>

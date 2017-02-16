@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215171856) do
+ActiveRecord::Schema.define(version: 20170216020700) do
 
   create_table "images", force: :cascade do |t|
     t.string   "tags"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20170215171856) do
     t.string   "media_content_type"
     t.integer  "media_file_size"
     t.datetime "media_updated_at"
+    t.integer  "width"
+    t.integer  "height"
   end
 
 end

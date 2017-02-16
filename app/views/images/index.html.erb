@@ -6,12 +6,16 @@
     <%= form_tag search_images_path, class: 'navbar-form navbar-left' do %>
       <div class="form-group">
         <%= select_tag 'filter[]', options_for_select(@filter.map{|tag| [tag, tag]}, @filter), multiple: :multiple, include_blank: false %>
+        <%= submit_tag 'Search', class: 'btn btn-default' %>
       </div>
-      <%= submit_tag 'Search', class: 'btn btn-default' %>
     <% end %>
 
+    <ul class="nav navbar-nav">
+      <li><a href="#"><b><%= @images.size %></b> images found</a></li>
+    </ul>
+
     <div class="navbar-form navbar-right">
-      <%= link_to new_image_path, remote: true, class: 'btn btn-primary pull-right' do %>
+      <%= link_to new_image_path(filter: @filter), remote: true, class: 'btn btn-primary pull-right' do %>
         Add
       <% end %>
     </div>
@@ -25,15 +29,18 @@
     <% row.each do |image| %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-          <%= link_to image_path(image), remote: true do %>
+          <%= link_to image_path(image, filter: @filter), remote: true do %>
             <%= image_tag image.media.url(:medium) %>
           <% end %>
           <div class="caption">
-            <p><%= image.tags.join(', ') %></p>
-            <%= link_to image_path(image), method: :delete, class: 'btn btn-danger pull-left' do %>
+            <ul class="list-unstyled">
+              <li><b>Dimensions:</b> <%= image.width %> X <%= image.height %></li>
+              <li><b>Tags:</b> <%= image.tags.join(', ') %></li>
+            </ul>
+            <%= link_to image_path(image, filter: @filter), method: :delete, class: 'btn btn-danger pull-left' do %>
               Remove
             <% end %>
-            <%= link_to edit_image_path(image), remote: true, class: 'btn btn-default pull-right' do %>
+            <%= link_to edit_image_path(image, filter: @filter), remote: true, class: 'btn btn-default pull-right' do %>
               Edit
             <% end %>
             <div class="clearfix"></div>

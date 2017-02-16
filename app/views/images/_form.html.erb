@@ -6,6 +6,10 @@
   <div class="modal-content">
     <%= form_for @image, authenticity_token: true, html: {multipart: true} do |f| %>
 
+      <% @filter.each do |tag| %>
+        <%= hidden_field_tag 'filter[]', tag %>
+      <% end %>
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><%= edit ? 'Edit' : 'New' %> Image</h4>
@@ -14,7 +18,7 @@
       <div class="modal-body">
         <div class="form-group">
           <% if @image.media.exists? %>
-            <%= image_tag @image.media.url(:medium) %>
+            <%= image_tag @image.media.url(:medium), class: 'center-block' %>
           <% end %>
         </div>
         <div class="form-group">
@@ -29,18 +33,18 @@
 
       <div class="modal-footer">
         <% if edit %>
-          <%= link_to image_path(@image.id), method: :delete, class: 'btn btn-danger pull-left' do %>
+          <%= link_to image_path(@image.id, filter: @filter), method: :delete, class: 'btn btn-danger pull-left' do %>
             Remove
           <% end %>
 
           <% if @prev.present? %>
-            <%= link_to image_path(@prev), remote: true, class: 'btn btn-default' do %>
+            <%= link_to edit_image_path(@prev, filter: @filter), remote: true, class: 'btn btn-default' do %>
               Prev
             <% end %>
           <% end %>
 
           <% if @next.present? %>
-            <%= link_to image_path(@next), remote: true, class: 'btn btn-default' do %>
+            <%= link_to edit_image_path(@next, filter: @filter), remote: true, class: 'btn btn-default' do %>
               Next
             <% end %>
           <% end %>

@@ -1,1 +1,34 @@
+<%
+  # Get some parameters
+  api_url = path_to_url('api/images')
+  tags = @tags.join(',')
+  limit = @limit
+  query = "#{api_url}?tags=#{tags}&limit=#{limit}"
+%>
+
 <h1>Sandbox</h1>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <%= form_tag sandbox_path, class: 'navbar-form navbar-left' do %>
+      <div class="form-group">
+        <code><span id="url"><%= api_url %></span>?tags=</code>
+        <%= text_field_tag 'tags', tags, class: 'form-control' %>
+        <code>&limit=</code>
+        <%= text_field_tag 'limit', @limit, class: 'form-control' %>
+        <%= submit_tag 'Query', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+    <div class="navbar-form navbar-right">
+      <%= link_to query, class: 'btn btn-default', target: '_blank' do %>
+        GO
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<h2>Result</h2>
+<pre class="well">
+  <code id="result" class="lang-js"></code>
+</pre>

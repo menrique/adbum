@@ -1,1 +1,92 @@
 <h1>Docs</h1>
+<p>Adbum is a minimalistic API to retrieve images on demand. This product is inspired by the need of getting images based
+  on keywords for advertisement campaigns. The reference describes each available resource in the API.
+  You can learn about parameters, errors, and results format.</p>
+
+<h2>Entry Point</h2>
+<% api_url = path_to_url('api/images') %>
+<code><%= api_url %></code>
+
+<h2>Parameters</h2>
+<p>Adbum uses the following <b>GET</b> parameters:</p>
+<dl class="dl-horizontal">
+  <dt>tags:</dt>
+  <dd><i>(String)</i> Image keywords to match as a comma separated value</dd>
+
+  <dt>limit:</dt>
+  <dd><i>(Integer)</i> Number of images to output</dd>
+</dl>
+
+<h4>Example</h4>
+<pre class="prettyprint well">
+  <code class="lang-js"><%= "#{api_url}?tags=cute,cats&limit=20" %></code>
+</pre>
+
+<h2>Reponses</h2>
+Since Adbum is a Restful JSON API, the response will be a well formatted JSON object.
+
+<h3>Ok</h3>
+<pre class="prettyprint well">
+  <code class="lang-js">
+  {
+    "count": Integer, // How many images were found
+    "images": [
+      {
+        "url": String, // Image URL
+        "width": Integer, // Image Width
+        "height": Integer // Image height
+      },
+    ]
+  }
+
+  // Example
+  {
+    "count": 3
+    "images": [
+      {
+        "url": "http://0.0.0.0:5000/system/images/media/000/000/033/original/Anika_Sharma.jpg?1487212007",
+        "width": 568,
+        "height": 568
+      },
+      {
+        "url": "http://0.0.0.0:5000/system/images/media/000/000/035/original/Anthony_Turco.jpg?1487212264",
+        "width": 568,
+        "height": 568
+      },
+      {
+        "url": "http://0.0.0.0:5000/system/images/media/000/000/036/original/Anser.png?1487212285",
+        "width": 590,
+        "height": 590
+      }
+    ]
+  }
+  </code>
+</pre>
+
+<h3>Bad Request</h3>
+<pre class="prettyprint well">
+  <code class="lang-js">
+  {
+    "error": String // Error message
+  }
+
+  // Example
+  {
+    "error": "Limit must be an integer"
+  }
+  </code>
+</pre>
+
+<h3>Internal Server Error</h3>
+<pre class="prettyprint well">
+  <code class="lang-js">
+  {
+    "error": String // Error message
+  }
+
+  // Example
+  {
+    "error": "Something went really bad in the server"
+  }
+  </code>
+</pre>

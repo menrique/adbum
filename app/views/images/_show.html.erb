@@ -8,30 +8,32 @@
 
     <div class="modal-body">
       <% if @image.media.exists? %>
-        <%= image_tag @image.media.url(:medium) %>
+        <%= link_to @image.media.url, target: '_blank' do %>
+          <%= image_tag @image.media.url(:medium), class: 'center-block' %>
+        <% end %>
       <% end %>
     </div>
 
     <div class="modal-footer">
       <div class="pull-left">
 
-        <%= link_to image_path(@image), method: :delete, class: 'btn btn-danger' do %>
+        <%= link_to image_path(@image, filter: @filter), method: :delete, class: 'btn btn-danger' do %>
           Remove
         <% end %>
       </div>
 
-      <%= link_to edit_image_path(@image), remote: true, class: 'btn btn-default' do %>
+      <%= link_to edit_image_path(@image, filter: @filter), remote: true, class: 'btn btn-default' do %>
         Edit
       <% end %>
 
       <% if @prev.present? %>
-        <%= link_to image_path(@prev), remote: true, class: 'btn btn-primary' do %>
+        <%= link_to image_path(@prev, filter: @filter), remote: true, class: 'btn btn-primary' do %>
           Prev
         <% end %>
       <% end %>
 
       <% if @next.present? %>
-        <%= link_to image_path(@next), remote: true, class: 'btn btn-primary' do %>
+        <%= link_to image_path(@next, filter: @filter), remote: true, class: 'btn btn-primary' do %>
           Next
         <% end %>
       <% end %>
