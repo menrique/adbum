@@ -18,7 +18,7 @@ describe 'Images API' do
       expect(json).to eq(serialize_images_api_response(available_images))
     end
 
-    it 'should limit hoy many images to retrieve' do
+    it 'should limit how many images to retrieve' do
 
       get "/api/images?limit=#{limit}"
       json = JSON.parse(response.body)
@@ -63,7 +63,7 @@ describe 'Images API' do
     expect(json).to eq ({'error' => 'Resource not found'})
   end
 
-  it 'should respond with error message and internal_server_error code when there is uncaugh exception' do
+  it 'should respond with error message and internal_server_error code when there is uncaught exception' do
 
     error_message = 'Something went wrong'
     allow(Image).to receive(:tagged).and_raise(error_message)
