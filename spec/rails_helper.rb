@@ -1,4 +1,4 @@
-require 'support/factory_girl'
+require 'support/factory_bot'
 require 'support/test_helpers'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'

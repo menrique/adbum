@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.2.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -38,7 +38,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'faker'
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails', require: false
+  gem 'factory_bot_rails', require: false
 end
 
 group :development do
@@ -51,5 +51,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Windows does not include zone info files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

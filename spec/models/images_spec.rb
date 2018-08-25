@@ -111,7 +111,7 @@ describe Image do
       rand(2..5).times.map{ create :image }
 
       # Expect everything OK
-      expect(described_class.tagged(matching_tags)).to eq matched_images
+      expect(described_class.tagged(matching_tags)).to match_array matched_images
     end
 
   end

@@ -7,7 +7,7 @@ describe 'Images API' do
     it 'should respond with status code OK' do
 
       get '/api/images'
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'should respond with all images by default' do

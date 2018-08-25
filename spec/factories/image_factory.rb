@@ -1,7 +1,7 @@
 #
 include ActionDispatch::TestProcess
 
-FactoryGirl.define do
+FactoryBot.define do
 
   # Factory to test the image model
   factory :image do
